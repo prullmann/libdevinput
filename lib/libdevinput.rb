@@ -488,8 +488,11 @@ class DevInput
   end
 
   def each
-    loop do
-      yield read
+    begin
+      loop do
+        yield read
+      end
+    resue Errno::ENODEV
     end
   end
 
