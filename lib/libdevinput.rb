@@ -488,7 +488,7 @@ class DevInput
   end
 
   def each
-    while true do
+    loop do
       yield read
     end
   end
