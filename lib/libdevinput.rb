@@ -478,13 +478,24 @@ class DevInput
     end
   end
 
-  def initialize(filename)
+  def initialize(filename, block_size=16, format=nil)
     @dev = File.open(filename)
+    @block_size = block_size
+    @format = format
+  end
+
+  def format
+    @format ||= case @block_size
+                when 16
+                  'llSSl'
+                when 24
+                  'qqSSl'
+                end
   end
 
   def read
-    bin = @dev.read 16
-    Event.new *bin.unpack("llSSl")
+    bin = @dev.read @block_size
+    Event.new *bin.unpack(format)
   end
 
   def each
