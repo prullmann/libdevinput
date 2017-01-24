@@ -1,3 +1,9 @@
+*NOTE: there is an actively maintained gem, device_input, that you should
+probably use instead of this library.*
+
+* https://rubygems.org/gems/device_input
+* https://github.com/rickhull/device_input
+
 libdevinput - a ruby library to read input device events from /dev/input/eventX on linux systems
 
 This ruby library makes it easy to read events from linux event devices. These device files, residing in /dev/input/ get created for a number of different human input devices like keyboards, mice, touchscreens, joysticks and the like.
@@ -28,4 +34,3 @@ The library currently only reads raw events. It does not read the capabilities o
 If you want to change this or something else, you are more than welcome to fork this project.
 
 This library was influenced by evtest.c, the event device test program by Vojtech Pavlik
-
